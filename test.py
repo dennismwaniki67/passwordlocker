@@ -42,7 +42,7 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user() # saving the new contact
         self.assertEqual(len(User.user_list),1)
        
-    def test_check_user(self):
+    def test_check_users(self):
         '''
         Test test_check_user case to test whether login feature is functional.
         '''
