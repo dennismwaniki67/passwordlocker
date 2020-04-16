@@ -1,5 +1,5 @@
 import unittest # Importing the unittest module
-from user import User,Account # Importing the contact class
+from user import User,Credentials # Importing the contact class
 
 class TestUser(unittest.TestCase):
 
@@ -57,8 +57,12 @@ class TestUser(unittest.TestCase):
         return current_user
 
         self.assertEqual(current_user, User.check_user(user2.password, user2.first_name))    
-    
-    
 
+class TestCredentials(unittest.TestCase):
+    '''
+    Test class that defines test cases for the credentials class behaviours.
+    '''    
+    
+    
 if __name__ == '__main__':
     unittest.main()
