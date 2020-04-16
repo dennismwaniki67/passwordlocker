@@ -44,7 +44,7 @@ class TestUser(unittest.TestCase):
        
     def test_check_user(self):
         '''
-        Test case to test whether login feature is functional.
+        Test test_check_user case to test whether login feature is functional.
         '''
         self.new_user = User('Dennis', 'Mwaniki', 'Mwaniki91')
         self.new_user.save_user()
