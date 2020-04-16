@@ -1,5 +1,5 @@
 import unittest # Importing the unittest module
-from user import User,account # Importing the contact class
+from user import User,Account # Importing the contact class
 
 class TestUser(unittest.TestCase):
 
@@ -32,15 +32,31 @@ class TestUser(unittest.TestCase):
         '''
         A method that clears the users list after every test.
         '''
-        User.users_list = []    
+        User.user_list = []    
 
     def test_save_user(self):
         '''
-        test_save_user test case to test if the user object is saved into
-         the user list
+        test case to test if the user object is saved into
+        the user list
         '''
         self.new_user.save_user() # saving the new contact
         self.assertEqual(len(User.user_list),1)
+       
+    def test_check_user(self):
+        '''
+        Test case to test whether login feature is functional.
+        '''
+        self.new_user = User('Dennis', 'Mwaniki', 'Mwaniki91')
+        self.new_user.save_user()
+        user2 = User('Njoro', 'Mwamba', 'Kimani19')
+        user2.save_user()
+ 
+        for user in User.user_list:
+            if user.first_name == user2.first_name and user.password == user2.password:
+                current_user = user.first_name
+        return current_user
+
+        self.assertEqual(current_user, User.check_user(user2.password, user2.first_name))    
     
     
 
