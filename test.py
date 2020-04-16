@@ -62,7 +62,12 @@ class TestCredentials(unittest.TestCase):
     '''
     Test class that defines test cases for the credentials class behaviours.
     '''    
-    
+    def setUp(self):
+        '''
+        Set up method to run before each test cases.
+        '''
+
+        self.new_credential = Credentials("Brian", "Instagram", "bryomajor", "nairobi@13")
     
 if __name__ == '__main__':
     unittest.main()
