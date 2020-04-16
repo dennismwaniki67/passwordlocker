@@ -67,7 +67,16 @@ class TestCredentials(unittest.TestCase):
         Set up method to run before each test cases.
         '''
 
-        self.new_credential = Credentials("Brian", "Instagram", "bryomajor", "nairobi@13")
+        self.new_credential = Credentials("Dennis", "Facebook", "dennism", "nakuru@91")
+    
+    def test__init__(self):
+        '''
+        Test case to check if creation of credential instances is properly done.
+        '''
+        self.assertEqual(self.new_credential.user_name, "Dennis")
+        self.assertEqual(self.new_credential.site_name, "Facebook")
+        self.assertEqual(self.new_credential.account_name, "dennism")
+        self.assertEqual(self.new_credential.password, "nakuru@91")  
     
 if __name__ == '__main__':
     unittest.main()
