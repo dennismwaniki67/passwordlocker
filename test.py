@@ -117,7 +117,7 @@ class TestCredentials(unittest.TestCase):
 
     def test_find_by_site_name(self):
         '''
-        Test case to test if we can search credential by site_name and return the correct credential.
+        search credential by site_name and return the right details.
         '''
         self.new_credential.save_credential()
         gmail = Credentials('fennis','Gmail','mephism','naks222')

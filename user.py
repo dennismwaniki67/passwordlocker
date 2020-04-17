@@ -74,6 +74,16 @@ class Credentials:
                 return True
         return False  
 
+
+    @classmethod
+    def find_by_site_name(cls, site_name):
+        '''
+        method takes a site name and returns details that matches that site
+        '''
+        for credential in cls.credentials_list:
+            if credential.site_name == site_name:
+                return credential
+
     @classmethod
     def copy_credential(cls, site_name):
         '''
