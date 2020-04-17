@@ -24,7 +24,7 @@ class User:
     @classmethod
     def check_user(cls, first_name, password):
         '''
-        check_user Method checks if the name and  password entered matched the user_list.
+        Method checks if the name and  password entered matched the user_list[].
         '''
         current_user = ''
         for user in User.user_list:
@@ -42,7 +42,7 @@ class Credentials:
     
     def __init__(self, user_name, site_name, account_name, password):
         '''
-        __init__ method that helps us define properties for our objects
+        define properties for our objects
         '''
 
         self.user_name = user_name
@@ -52,7 +52,7 @@ class Credentials:
         
     def save_credential(self):
         '''
-        this method will store credential objects in the credentials_list[]
+        this method stores credential objects in the credentials_list[]
         '''
 
         Credentials.credentials_list.append(self)     

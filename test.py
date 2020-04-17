@@ -87,6 +87,16 @@ class TestCredentials(unittest.TestCase):
         twitter.save_credential()
         self.assertEqual(len(Credentials.credentials_list), 2)
 
+    def test_display_credentials(self):
+        '''
+        To test if our objects are shown.
+        '''
+        self.new_credential.save_credential()
+        instagram = Credentials("Kelvin", "Instagram", "kelvin", "nairobery")
+        instagram.save_credential()
+        yahoo = Credentials('Ruth','Yahoo','Ruth','Ruth101')
+        yahoo.save_credential()
+        self.assertEqual(len(Credentials.display_credential(instagram.user_name)), 1)
     
 if __name__ == '__main__':
     unittest.main()
