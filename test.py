@@ -67,14 +67,14 @@ class TestCredentials(unittest.TestCase):
         Set up method to run before each test cases.
         '''
 
-        self.new_credential = Credentials("Dennis", "Facebook", "dennism", "nakuru@91")
+        self.new_credential = Credentials("Dennis", "Twitter", "dennism", "nakuru@91")
     
     def test__init__(self):
         '''
         test case to test if the object is initialized properly.
         '''
         self.assertEqual(self.new_credential.user_name, "Dennis")
-        self.assertEqual(self.new_credential.site_name, "Facebook")
+        self.assertEqual(self.new_credential.site_name, "Twitter")
         self.assertEqual(self.new_credential.account_name, "dennism")
         self.assertEqual(self.new_credential.password, "nakuru@91")  
 
@@ -86,17 +86,23 @@ class TestCredentials(unittest.TestCase):
         twitter = Credentials("DK", "Twitter", "mwangi", "kitui")
         twitter.save_credential()
         self.assertEqual(len(Credentials.credentials_list), 2)
-
-    def test_display_credentials(self):
+        
+    def test_display_credential(self):
         '''
-        Display test to test if our objects are shown.
+        Test case to test if our objects show.
         '''
         self.new_credential.save_credential()
-        instagram = Credentials("Kelvin", "Instagram", "kelvin", "nairobery")
-        instagram.save_credential()
-        yahoo = Credentials('Ruth','Yahoo','Ruth','Ruth101')
-        yahoo.save_credential()
-        self.assertEqual(len(Credentials.display_credential(instagram.user_name)), 1)
+        twitter = Credentials("Dk", "Twitter", "mwangi", "kitui")
+        twitter.save_credential()
+        gmail = Credentials('DK','Gmail','DK','DK200')
+        gmail.save_credential()
+        self.assertEqual(len(Credentials.display_credential(twitter.user_name)), 3)
+    
+
+
+
+
+    
     
 if __name__ == '__main__':
     unittest.main()
