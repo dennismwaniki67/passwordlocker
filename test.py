@@ -61,21 +61,21 @@ class TestUser(unittest.TestCase):
 
 class TestCredentials(unittest.TestCase):
     '''
-    Test class that defines test cases for the credentials class behaviours.
+    Defines test cases for the credentials class behaviours.
     '''    
     def setUp(self):
         '''
         Set up method to run before each test cases.
         '''
 
-        self.new_credential = Credentials("Dennis", "Twitter", "dennism", "nakuru@91")
+        self.new_credential = Credentials("Dennis", "Instagram", "dennism", "nakuru@91")
     
     def test__init__(self):
         '''
         test case to test if the object is initialized properly.
         '''
         self.assertEqual(self.new_credential.user_name, "Dennis")
-        self.assertEqual(self.new_credential.site_name, "Twitter")
+        self.assertEqual(self.new_credential.site_name, "Instagram")
         self.assertEqual(self.new_credential.account_name, "dennism")
         self.assertEqual(self.new_credential.password, "nakuru@91")  
 
@@ -90,8 +90,8 @@ class TestCredentials(unittest.TestCase):
         Testing if credentials are saved in credentials list.
         '''
         self.new_credential.save_credential()
-        instagram = Credentials("Dennis", "Instagram", "dennism", "nakuru@91")
-        instagram.save_credential()
+        twitter = Credentials("Dennis", "Twitter", "dennism", "nakuru@91")
+        twitter.save_credential()
         self.assertEqual(len(Credentials.credentials_list), 2)
 
     def test_del_credential(self):
@@ -99,7 +99,7 @@ class TestCredentials(unittest.TestCase):
         Test if we can delete a saved credential.
         '''
         self.new_credential.save_credential()
-        new_credential = Credentials('fennis','Gmail','mephism','naks200')
+        new_credential = Credentials('fennis','Gmail','mephism','naks222')
         new_credential.save_credential()
 
         self.new_credential.del_credential()
@@ -110,10 +110,37 @@ class TestCredentials(unittest.TestCase):
         Test  to check if a credential exists in the credential_list
         '''
         self.new_credential.save_credential()
-        test_credential = Credentials('fennis','Gmail','mephism','naks200')
+        test_credential = Credentials('fennis','Gmail','mephism','naks222')
         test_credential.save_credential()
         credential_exists = Credentials.credential_exist("Gmail")
         self.assertTrue(credential_exists)
+
+    def test_find_by_site_name(self):
+        '''
+        Test case to test if we can search credential by site_name and return the correct credential.
+        '''
+        self.new_credential.save_credential()
+        gmail = Credentials('fennis','Gmail','mephism','naks222')
+        gmail.save_credential()
+        credential_exists = Credentials.find_by_site_name('Gmail')
+        self.assertEqual(credential_exists, gmail)
+
+
+    def test_copy_credential(self):
+        '''
+        Test if the copy credential method copies the correct credential from credit list.
+        '''
+        self.new_credential.save_credential()
+        twitter = Credentials("Dennis", "Twitter", "dennism", "nakuru@91")
+        twitter.save_credential()
+        find_credential = None
+        for credential in Credentials.users_credentials_list:
+            find_credential = Credentials.find_by_site_name(credential.site_name)
+            return pyperclip.copy(find_credential.password)
+        Credentials.copy_credential(self.new_credential.site_name)
+        self.assertEqual('nakuru@91', pyperclip.paste())
+        print(pyperclip.paste())
+
 
 
 if __name__ == '__main__':
