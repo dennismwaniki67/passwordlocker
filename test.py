@@ -98,18 +98,22 @@ class TestCredentials(unittest.TestCase):
         Test if we can delete a saved credential.
         '''
         self.new_credential.save_credential()
-        new_credential = Credentials('fennis','gmail','mephism','naks200')
+        new_credential = Credentials('fennis','Gmail','mephism','naks200')
         new_credential.save_credential()
 
         self.new_credential.del_credential()
-        self.assertEqual(len(Credentials.credentials_list), 1)    
-
+        self.assertEqual(len(Credentials.credentials_list), 1)  
     
+    def test_credential_exists(self):
+        '''
+        Test  to check if a credential exists in the credential_list
+        '''
+        self.new_credential.save_credential()
+        test_credential = Credentials('fennis','Gmail','mephism','naks200')
+        test_credential.save_credential()
+        credential_exists = Credentials.credential_exist("Gmail")
+        self.assertTrue(credential_exists)
 
 
-
-
-    
-    
 if __name__ == '__main__':
     unittest.main()
