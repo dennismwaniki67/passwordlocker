@@ -62,3 +62,13 @@ class Credentials:
         function deletes a saved credential from the credential_list
         '''
         Credentials.credentials_list.remove(self)
+    
+    @classmethod
+    def credential_exist(cls, site_name):
+        '''
+        method that checks if a credential exists from credential list.
+        '''
+        for credential in cls.credentials_list:
+            if credential.site_name == site_name:
+                return True
+        return False   
