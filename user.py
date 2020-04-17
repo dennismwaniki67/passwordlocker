@@ -55,4 +55,11 @@ class Credentials:
         this method stores credential objects in the credentials_list[]
         '''
 
-        Credentials.credentials_list.append(self)     
+        Credentials.credentials_list.append(self)  
+   
+    @classmethod
+    def display_credential(cls):
+        '''
+        method that returns the credentials list
+        '''
+        return cls.credentials_list       

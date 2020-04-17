@@ -89,7 +89,7 @@ class TestCredentials(unittest.TestCase):
 
     def test_display_credentials(self):
         '''
-        To test if our objects are shown.
+        Display test to test if our objects are shown.
         '''
         self.new_credential.save_credential()
         instagram = Credentials("Kelvin", "Instagram", "kelvin", "nairobery")
