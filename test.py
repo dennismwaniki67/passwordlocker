@@ -83,8 +83,8 @@ class TestCredentials(unittest.TestCase):
         Testing if credentials are saved in credentials list.
         '''
         self.new_credential.save_credential()
-        facebook = Credentials("DK", "Twitter", "mwangi", "kitui")
-        facebook.save_credential()
+        twitter = Credentials("DK", "Twitter", "mwangi", "kitui")
+        twitter.save_credential()
         self.assertEqual(len(Credentials.credentials_list), 2)
 
     
