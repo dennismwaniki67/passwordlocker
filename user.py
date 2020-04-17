@@ -67,9 +67,17 @@ class Credentials:
     @classmethod
     def credential_exist(cls, site_name):
         '''
-        method that checks if a credential exists from credential list.
+        checks if a credential exists from credential list.
         '''
         for credential in cls.credentials_list:
             if credential.site_name == site_name:
                 return True
-        return False   
+        return False  
+
+    @classmethod
+    def copy_credential(cls, site_name):
+        '''
+        copies a credentials details after the credentials site_name has been entered
+        '''
+        find_credential = Credentials.find_by_site_name(site_name)
+        return pyperclip.copy(find_credential.password)
