@@ -1,3 +1,4 @@
+import pyperclip
 import unittest # Importing the unittest module
 from user import User,Credentials # Importing the contact class
 
