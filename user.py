@@ -1,5 +1,3 @@
-import random
-import string
 class User:
     """
     Class that generates instances of users. 
@@ -57,20 +55,10 @@ class Credentials:
         this method stores credential objects in the credentials_list[]
         '''
 
-        Credentials.credentials_list.append(self) 
-        
-    def delete_credentials(self):
-		'''
-		function to delete my prefered credential
-		'''
-		Credentials.credentials_list.remove(self)    
-
+        Credentials.credentials_list.append(self)  
     
-
-
-    @classmethod
-    def display_credential(cls):
+    def del_credential(self):
         '''
-        method that returns the credential list
+        function deletes a saved credential from the credential_list
         '''
-        return cls.credentials_list
+        Credentials.credentials_list.remove(self)

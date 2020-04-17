@@ -78,25 +78,32 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(self.new_credential.account_name, "dennism")
         self.assertEqual(self.new_credential.password, "nakuru@91")  
 
+    def tearDown(self):
+        '''
+        Clears the credentials list.
+        '''
+        Credentials.credentials_list = []
+
     def test_save_credentials(self):
         '''
         Testing if credentials are saved in credentials list.
         '''
         self.new_credential.save_credential()
-        twitter = Credentials("DK", "Twitter", "mwangi", "kitui")
-        twitter.save_credential()
+        instagram = Credentials("Dennis", "Instagram", "dennism", "nakuru@91")
+        instagram.save_credential()
         self.assertEqual(len(Credentials.credentials_list), 2)
-        
-    def test_display_credential(self):
+
+    def test_del_credential(self):
         '''
-        Test case to test if our objects show.
+        Test if we can delete a saved credential.
         '''
         self.new_credential.save_credential()
-        twitter = Credentials("Dk", "Twitter", "mwangi", "kitui")
-        twitter.save_credential()
-        gmail = Credentials('DK','Gmail','DK','DK200')
-        gmail.save_credential()
-        self.assertEqual(len(Credentials.display_credential(twitter.user_name)), 3)
+        new_credential = Credentials('fennis','gmail','mephism','naks200')
+        new_credential.save_credential()
+
+        self.new_credential.del_credential()
+        self.assertEqual(len(Credentials.credentials_list), 1)    
+
     
 
 
