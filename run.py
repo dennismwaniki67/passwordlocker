@@ -59,9 +59,15 @@ def find_by_site(site_name):
     Function that searches for a site name.
     '''
     return Credentials.find_by_site_name(site_name)
-    
+
 def delete_credential(credential):
     '''
     Function that deletes credentials by site name.
     '''
     credential.del_credential()
+    
+def check_existing_credentials(site_name):
+    '''
+    Function that checks if a credential exists.
+    '''
+    return Credentials.credential_exist(site_name)
