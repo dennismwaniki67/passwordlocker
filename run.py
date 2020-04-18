@@ -46,7 +46,7 @@ def display_credentials(username):
     '''
     Fucntion to display credentials saved.
     '''
-    return Credentials.display_credential(username)   
+    return Credentials.display_credentials(username)   
 
 def copy_credential(site_name):
     '''
@@ -115,7 +115,7 @@ def main():
                     print('\n')
                     short_code = input('Enter a choice: ').lower().strip()
                     print("-"*40)
-                    if short_code == 'ex':
+                    if short_code == 'exit':
                         print('\n')
                         print(f"Bye {user_name}")
                         break
@@ -198,5 +198,6 @@ def main():
                 print("-"*40)
                 print('\n')
                 print("I really didn't get that. Please use the short codes.")
+
 if __name__ == '__main__':
     main()
