@@ -1,4 +1,5 @@
 import pyperclip
+import random
 class User:
     """
     Class that generates instances of users. 
@@ -35,7 +36,7 @@ class User:
 
 class Credentials:
     '''
-    Class Account will generate instances of account and generate passwords while saving
+    Class will generate instances of account and generate passwords while saving
     '''
 
     credentials_list = []
@@ -58,10 +59,25 @@ class Credentials:
 
         Credentials.credentials_list.append(self)  
 
+
+    def generate_password(self):
+        '''
+        method to generate a password or create your own
+        '''
+        chars = "abcdefghijklmnopqrstuvwxyziABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890^?!?$%&/()=?`'+#*'~';:_,.-<>|"
+        password = ""
+
+        length = int(input("[*] Input Password Length: "))
+        while len(password) != length:
+            password = password + random.choice(chars)
+            if len(password) == length:
+                print("Password: %s" % password)
+        return password
+
     @classmethod
     def display_credentials(cls, user_name):
         '''
-        Class method to show the list of credentials saved
+        method to show the list of credentials saved
         '''
         users_credentials_list = []
         for credential in cls.credentials_list:
@@ -72,7 +88,7 @@ class Credentials:
     
     def del_credential(self):
         '''
-        function deletes a saved credential from the credential_list
+        deletes a saved credential from the credential_list
         '''
         Credentials.credentials_list.remove(self)
     
