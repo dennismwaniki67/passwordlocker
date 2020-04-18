@@ -73,7 +73,7 @@ def check_existing_credentials(site_name):
     return Credentials.credential_exist(site_name)
 
 def main():
-    print('\n')
+    print('')
 
     print("")
     print("HEYY U! Welcome to Password Locker System.")
@@ -97,7 +97,7 @@ def main():
             password = input('Enter password - ').strip()
             save_user(create_user(first_name, last_name, password))
             print('\n')
-            print(f"New account created for {first_name} {last_name} using password {password}")
+            print(f"New account created for: {first_name} {last_name} using password {password}")
         
         elif short_code == 'lg':
             print("-"*40)
@@ -192,12 +192,12 @@ def main():
                 
                 else:
                     print('\n')
-                    print("Bummer! You entered the wrong details Please try again or create an account.")
+                    print("OOPS! Wrong details entered.Please try again or create an account.")
 
             else:
                 print("-"*40)
                 print('\n')
-                print("I really didn't get that. Please use the short codes.")
+                print("Oops! Wrong option entered.Please use the short codes.")
 
 if __name__ == '__main__':
     main()
