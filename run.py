@@ -53,9 +53,15 @@ def copy_credential(site_name):
     Function that copies credentials details to the clipborad.
     '''
     return Credentials.copy_credential(site_name)
-    
+
 def find_by_site(site_name):
     '''
     Function that searches for a site name.
     '''
     return Credentials.find_by_site_name(site_name)
+    
+def delete_credential(credential):
+    '''
+    Function that deletes credentials by site name.
+    '''
+    credential.del_credential()
