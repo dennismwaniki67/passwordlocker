@@ -93,6 +93,17 @@ class TestCredentials(unittest.TestCase):
         twitter = Credentials("Dennis", "Twitter", "dennism", "nakuru@91")
         twitter.save_credential()
         self.assertEqual(len(Credentials.credentials_list), 2)
+    
+    def test_display_credentials(self):
+        '''
+        Test case to test if our objects show.
+        '''
+        self.new_credential.save_credential()
+        twitter = Credentials("Dennis", "Twitter", "dennism", "nakuru@91")
+        twitter.save_credential()
+        gmail = Credentials('fennis','Gmail','mephism','naks222')
+        gmail.save_credential()
+        self.assertEqual(len(Credentials.display_credentials(twitter.user_name)), 2)
 
     def test_del_credential(self):
         '''
