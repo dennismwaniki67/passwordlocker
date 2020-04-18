@@ -198,3 +198,5 @@ def main():
                 print("-"*40)
                 print('\n')
                 print("I really didn't get that. Please use the short codes.")
+if __name__ == '__main__':
+    main()
