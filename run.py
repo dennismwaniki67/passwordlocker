@@ -41,12 +41,15 @@ def save_credential(credential):
     Function to save a newly created credential.
     '''
     Credentials.save_credential(credential)
-    
+
 def display_credentials(username):
     '''
     Fucntion to display credentials saved.
     '''
     return Credentials.display_credential(username)   
 
-
-
+def copy_credential(site_name):
+    '''
+    Function that copies credentials details to the clipborad.
+    '''
+    return Credentials.copy_credential(site_name)
