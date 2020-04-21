@@ -32,7 +32,7 @@ This is a python based application where users can manage their passwords. It al
       x - Exit the credential display mode
     ```
 6. #### Running Unit Tests
-  * Run ``` python3.6 user_cred_test.py``` for the user and credential classes tests.
+  * Run ``` python3.6 test.py``` for the user and credential classes tests.
   
 
 ### Known Bugs
